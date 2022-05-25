@@ -1,13 +1,16 @@
-import h5py
-import numpy as np
 '''
-Store and load matrix data in the HDF5 format without overwriting.
+The utility module is a module for storing and loading matrix data in the HDF5 format.
 
-This is a collection of functions to store data in backup files for the Swedish half of the Solid ALiBI project
+The utility module is a collection of functions to:
+    store data in backup files
+    load that data
+    and show the structure of the storage
+for the Swedish half of the Solid ALiBI project.
 Requires H5py and numpy.
 '''
 
-
+import h5py
+import numpy as np
 
 def show(filename):
     '''

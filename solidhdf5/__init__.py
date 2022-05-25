@@ -1,0 +1,1 @@
+'''A package for data treatment in the Swedish half of the Solid ALiBI project'''
