@@ -1,11 +1,7 @@
 '''
 The utility module is a module for storing and loading matrix data in the HDF5 format.
 
-The utility module is a collection of functions to:
-    store data in backup files
-    load that data
-    and show the structure of the storage
-for the Swedish half of the Solid ALiBI project.
+The utility module is a collection of functions to store data in backup files, load that data, and show the structure of the storage for the Swedish half of the Solid ALiBI project.
 Requires H5py and numpy.
 '''
 
@@ -16,39 +12,31 @@ def show(filename):
     '''
     Retrieve and print dataset names and path names.
     
-    Parameters :    filename : string
-                    The file in which the data will be stored
+    Parameters
+    ----------
+    filename : string
+        The file in which the data will be stored
     
     Examples
     --------
     >>> solidhdf5.show("existingfile.hdf5")
     Samples:
-
-
 	Samplename: EA0000
 	Material: PTMChmw, Project: testproject
-
 		Datasets in sample directory:
-
 			/PESlt1
 			Axisnames: [R,G,B], Date: 20210223, Method: PES, Time: 08:30
 			Load with sah.load(EA0000/PESlt1)
-
 			/PESlt_aft_dep1
 			Axisnames: [R,G,B], Date: 20210222, Method: PES, Time: 08:31
 			Load with sah.load(EA0000/PESlt_aft_dep1)
-
-
-
 	Samplename: EA0001
 	Material: PTMC, Project: testproject
-
 		Datasets in sample directory:
-
 			/XPShome1
 			Axisnames: [R,G,B], Date: 20210222, Method: XPS, Time: 08:32
 			Load with sah.load(EA0001/XPShome1)
-
+    
     >>> solidhdf5.show("nonexistingfile.hdf5")
     File not accessible.
     '''
@@ -85,14 +73,18 @@ def load(filename,pathname):
     '''
     Loads data from the specified path.
     
-    Parameters :    filename : string
-                    The file in which the data will be stored
-                    
-                    pathname : string
-                    The name of the path that is to be loaded
+    Parameters
+    ----------
     
-    Returns :       out : ndarray
-                    A numpy array with the data of the specified dataset at the specified path
+    filename : string
+        The file in which the data will be stored.
+    pathname : string
+        The name of the path that is to be loaded.
+            
+    Returns
+    -------
+        out : ndarray
+            A numpy array with the data of the specified dataset at the specified path.
     
     Examples
     --------
@@ -130,35 +122,38 @@ def store(filename,npdata,axisnames,project,material,method,date,time,samplename
     Store data in the hdf5 file, without overwriting previous data.
     Pathname is generated as the samplename plus the name of the dataset.
     
-    Parameters :    filename : string
-                    The file in which the data will be stored
+    Parameters
+    ----------
+    
+    filename : string
+        The file in which the data will be stored
                     
-                    npdata : array_like
-                    The data which is to be stored
+    npdata : array_like
+        The data which is to be stored
                     
-                    axisnames : string array
-                    The names of the axises of the data
+    axisnames : string array
+        The names of the axises of the data
                     
-                    project : string
-                    Name of the project
+    project : string
+        Name of the project
                     
-                    material : string
-                    Name of the material that is studied
+    material : string
+        Name of the material that is studied
                     
-                    method : string
-                    Name of the method used to obtain the data
+    method : string
+        Name of the method used to obtain the data
                     
-                    date : string
-                    Date of data aquisition
+    date : string
+        Date of data aquisition
                     
-                    time : string
-                    Experiment start time
+    time : string
+        Experiment start time
                     
-                    samplename : string
-                    Name of the sample
+    samplename : string
+        Name of the sample
                     
-                    datasetname : string
-                    Name of the dataset
+    datasetname : string
+        Name of the dataset
                     
     Examples
     --------
